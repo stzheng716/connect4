@@ -4,7 +4,7 @@ beforeEach(function () {
   console.log("Run once before each test starts");
 
   // reset & make in-memory board
-  BOARD.length = 0;
+  board.length = 0;
   makeBoard();
 
   // reset & make html board
@@ -13,23 +13,23 @@ beforeEach(function () {
   makeHtmlBoard();
 
   // reset currPlayer
-  CURR_PLAYER = 1;
+  currPlayer = 1;
 });
 
 
 describe('makeBoard', function () {
 
   it('makes the in-memory board', function () {
-    expect(BOARD.length).toEqual(HEIGHT);
+    expect(board.length).toEqual(HEIGHT);
 
-    for (const row of BOARD) {
+    for (const row of board) {
       expect(row.length).toEqual(WIDTH);
     }
   });
 
   it('in-memory board rows should have unique identity', function () {
-    const rows = new Set(BOARD);
-    expect(rows.size).toEqual(BOARD.length);
+    const rows = new Set(board);
+    expect(rows.size).toEqual(board.length);
   });
 });
 

@@ -10,9 +10,9 @@
 const WIDTH = 7;
 const HEIGHT = 6;
 
-let CURR_PLAYER = 1; // active player: 1 or 2
+let currPlayer = 1; // active player: 1 or 2
 //TODO: change it to camelCase
-const BOARD = []; // array of rows, each row is array of cells  (board[y][x])
+const board = []; // array of rows, each row is array of cells  (board[y][x])
 //TODO: change board to camelCase
 
 /** makeBoard: create in-JS board structure:
@@ -26,7 +26,7 @@ function makeBoard() {
     for (let x = 0; x < WIDTH; x++) {
       row.push(null)
     }
-    BOARD.push(row);
+    board.push(row);
   }
 }
 
@@ -82,6 +82,13 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  const piece = document.createElement("div");
+  const tableCell = document.getElementById(`c-${y}-${x}`);
+
+  console.log("piece = ",piece, "table = ",tableCell)
+  piece.classList.add('piece',`p${currPlayer}`);
+  tableCell.append(piece);
+
 }
 
 /** endGame: announce game end */
@@ -94,16 +101,16 @@ function endGame(msg) {
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  let x = +evt.target.id;
+  let x= +evt.target.id[evt.target.id.length-1];
 
   // get next spot in column (if none, ignore click)
   let y = findSpotForCol(x);
   if (y === null) {
     return;
   }
-
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
+  console.log("y=",y,"x=",x)
   placeInTable(y, x);
 
   // check for win

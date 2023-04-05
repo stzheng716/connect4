@@ -10,6 +10,7 @@
 
 .piece {
   /* TODO: make into circles */
+  border-radius: 10px;
   margin: 5px;
   width: 80%;
   height: 80%;
@@ -25,4 +26,12 @@
 
 #column-top td:hover {
   background-color: gold;
+}
+
+.p1 {
+  background-color: red;
+}
+
+.p2 {
+  background-color: blue;
 }
