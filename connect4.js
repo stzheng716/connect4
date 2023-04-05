@@ -11,14 +11,16 @@ const WIDTH = 7;
 const HEIGHT = 6;
 
 let CURR_PLAYER = 1; // active player: 1 or 2
+//TODO: change it to camelCase
 const BOARD = []; // array of rows, each row is array of cells  (board[y][x])
+//TODO: change board to camelCase
 
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-  // TOD: set "board" to empty HEIGHT x WIDTH matrix array
+  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
   for (let y = 0; y < HEIGHT; y++) {
     let row = [];
     for (let x = 0; x < WIDTH; x++) {
@@ -34,13 +36,13 @@ function makeBoard() {
 function makeHtmlBoard() {
   const htmlBoard = document.getElementById('board');
 
-  // TOD: add comment for this code
+  // TODO: add comment for this code
   //creating a tr element and assigning id tag equal to "column-top".
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
-  // TOD: add comment for this code
+  // TODO: add comment for this code
   //creating a td element and set id attribute to column and append to top.
   for (let x = 0; x < WIDTH; x++) {
     const headCell = document.createElement("td");
