@@ -75,7 +75,12 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 5
-  return 5;
+  for(let y = HEIGHT - 1; y < 0; y--){
+    if(board[y][x] === null) {
+      return y;
+    }
+  }
+  return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
@@ -101,7 +106,9 @@ function endGame(msg) {
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  let x= +evt.target.id[evt.target.id.length-1];
+  let x= +evt.target.id.slice("top-".length);
+
+  //TODO: use a slice
 
   // get next spot in column (if none, ignore click)
   let y = findSpotForCol(x);
